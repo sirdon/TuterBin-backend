@@ -6,7 +6,7 @@ module.exports = {
             const { name, email, password, mobile } = req.body;
             const userData = { name, email, password, mobile };
             // existing user check
-            const existingUser = await User.findOne({ email });
+            const existingUser = await Users.findOne({ email });
             if (existingUser) throw new Error("User already exists with email")
 
             const user = await new Users(userData).save()
